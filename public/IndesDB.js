@@ -60,7 +60,7 @@ if (!('indexedDB' in window)) {
           const transaction = db.transaction(["pendingTransaction"], "readwrite");
   
           // access your pending object store
-          const store = transaction.objectStore("pending");
+          const store = transaction.objectStore("pendingTransaction");
   
           // clear all items in your store
           store.clear();
