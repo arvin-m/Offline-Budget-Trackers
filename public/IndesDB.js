@@ -25,3 +25,14 @@ if (!('indexedDB' in window)) {
   request.onerror = function(event) {
     console.log("ERROR ! " + event.target.errorCode);
   };
+//   Creating a function called  in index.js for save Transaction when the app works offline
+function saveRecord(record) {
+    // create a transaction on the pending Transaction db with readwrite access
+    const transaction = db.transaction(["pendingTransaction"], "readwrite");
+  
+    // access your pending Transaction object store
+    const store = transaction.objectStore("pendingTransaction");
+  
+    // add record to your store with add method.
+    store.add(record);
+  }
