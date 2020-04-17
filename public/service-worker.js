@@ -1,7 +1,9 @@
 console.log("Your Service Worker file Connected !");
 const FILES_TO_CACHE = [
     "/",
-    "/index.html",
+    "index.html",
+    "/indexDb.js",
+    "/index.js",
     '/styles.css',
     "/icons/icon-192x192.png",
     "/icons/icon-512x512.png"
@@ -62,6 +64,14 @@ const FILES_TO_CACHE = [
         }).catch(err => console.log(err))
       );
   
-      return;
-  }});
+      return;     
+  }
+  evt.respondWith(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(evt.request).then(response => {
+        return response || fetch(evt.request);
+      });
+    })
+  )
+});
   
