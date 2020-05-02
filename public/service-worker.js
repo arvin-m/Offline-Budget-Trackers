@@ -2,7 +2,7 @@ console.log("Your Service Worker file Connected !");
 const FILES_TO_CACHE = [
     "/",
     "index.html",
-    "/indexDB.js",
+    "/db.js",
     "/index.js",
     '/styles.css',
     "/icons/icon-192x192.png",
