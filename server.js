@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-let MONGODB_URI=process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+let MONGODB_URI=process.env.MONGODB_URI || "mongodb+srv://arvin-budget:33913391@budget-trackers.2yqbu.mongodb.net/bufgetTracker?retryWrites=true&w=majority";
 
 mongoose.connect(MONGODB_URI,{
   useNewUrlParser: true,
